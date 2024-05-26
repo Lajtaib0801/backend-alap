@@ -101,3 +101,38 @@ router.delete('/delete/:id', async (req, res) => {
 })
 
 module.exports = router
+
+/* TO BE DELETED LATER!
+
+router.get('/locations/:locationName/viewpoints', async (req, res) => {
+    try {
+        const locationId = (await Location.findOne({ locationName: req.params.locationName }))?._id
+        const data = await Viewpoint.find({ location: locationId })
+        if (data.length === 0) {
+            res.status(404).json({message:'Ebben a hegységben nem találtam kilátót.'})
+        }
+        res.json(data)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.patch('/viewpoints/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const updatedData = req.body
+        const options = { new: true, runValidators: true }
+
+        const result = await Viewpoint.findByIdAndUpdate(id, updatedData, options)
+        if (result) {
+            res.send(result)
+        } else {
+            res.status(404).json({ message: `${id} azonosítóval nem létezik kilátó!` })
+        }
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
+
+
+*/

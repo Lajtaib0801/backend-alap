@@ -22,6 +22,7 @@ const filmSchema = new mongoose.Schema({
         type: Date,
         required: true,
         min: ['1931-03-07', 'Ilyen régi film nem létezik!'],
+        //Mostani datum: Date.now
     },
     Hossz: {
         type: Number,
